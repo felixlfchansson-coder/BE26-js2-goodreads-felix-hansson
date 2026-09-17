@@ -2,348 +2,217 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <link rel="icon" type="image/png" href="/fav-icon.png" />
-
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
+      content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/src/style.css" />
-
     <title>inkstone</title>
   </head>
 
-  <body>
-
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
-
-    <aside class="sidebar">
-       <div class="header-brand">
-            <h1>Inkstone</h1>
-            <p>Stories are the lifeblood of our imagination.</p>
-          </div>
-  <nav class="main-nav">
-
-  <a href="/index.html" class="active">
-    <i data-lucide="house"></i>
-    <span>Home</span>
-  </a>
-
-  <a href="/browse.html">
-    <i data-lucide="search"></i>
-    <span>Browse</span>
-  </a>
-
-  <a href="/library.html">
-    <i data-lucide="library"></i>
-    <span>My Library</span>
-  </a>
-
-  <a href="#">
-    <i data-lucide="sparkles"></i>
-    <span>Recommendations</span>
-  </a>
-
-</nav>
+<body>
+  <aside class="sidebar">
+    <div class="header-brand">
+        <h1>Inkstone</h1>
+        <p>Stories are the lifeblood of our imagination.</p>
+    </div>
+    <nav class="main-nav">
+    <a href="/index.html" class="active">
+      <i data-lucide="house"></i>
+      <span>Home</span>
+    </a>
+    <a href="/browse.html">
+      <i data-lucide="search"></i>
+      <span>Browse</span>
+    </a>
+    <a href="/library.html">
+      <i data-lucide="library"></i>
+      <span>My Library</span>
+    </a>
+    <a href="#">
+      <i data-lucide="sparkles"></i>
+      <span>Recommendations</span>
+    </a>
+  </nav>
 </aside>
 
+<main class="home">
+  <section class="hero">
+    <blockquote class="hero-quote">
+      “We live in cities you never see on screen.”
+      <cite>— Lorde</cite>
+    </blockquote>
 
-    <!-- =========================
-         MAIN
-    ========================== -->
+    <div class="hero-content">
+      <h1>Welcome back.</h1>
+      <p>Where will you disappear to tonight?</p>
+    </div>
+  </section>
 
-    <main class="home">
+  <div class="home-content">
+    <section class="library-preview">
+      <header>
+        <div>
+          <h2>Your Library</h2>
+          <p>A glimpse of your world.</p>
+        </div>
+        <a href="#">View all</a>
+      </header>
+    <div class="book-grid">
 
+      <section class="tbr-section">
+        <h3>To Be Read</h3>
+        <ul id="tbr-books"></ul>
+      </section>
+      <section class="read-section">
+        <h3>Read</h3>
+        <ul id="read-books"></ul>
+      </section>
+    </div>
 
-    <!-- =========================
-     HERO
-========================== -->
+    <section class="add-book">
+      <header class="section-header">
+        <div>
+          <h2>Add a Book</h2>
+          <p>Add something new to your library.</p>
+        </div>
+      </header>
 
-<section class="hero">
-
-  <blockquote class="hero-quote">
-    “We live in cities you never see on screen.”
-    <cite>— Lorde</cite>
-  </blockquote>
-
-  <div class="hero-content">
-    <h1>Welcome back.</h1>
-    <p>Where will you disappear to tonight?</p>
-  </div>
-
-</section>
-
-      <!-- =========================
-           HOME CONTENT
-      ========================== -->
-
-      <div class="home-content">
-
-
-        <!-- =========================
-             LIBRARY PREVIEW
-        ========================== -->
-
-        <section class="library-preview">
-
-          <header>
-            <div>
-              <h2>Your Library</h2>
-              <p>A glimpse of your world.</p>
-            </div>
-
-            <a href="#">View all</a>
-          </header>
-
-
-          <div class="book-grid">
-
-            <!-- TBR -->
-
-            <section class="tbr-section">
-              <h3>To Be Read</h3>
-              <ul id="tbr-books"></ul>
-            </section>
-
-
-            <!-- READ -->
-
-            <section class="read-section">
-              <h3>Read</h3>
-              <ul id="read-books"></ul>
-            </section>
-
+      <form id="book-form">
+        <div>
+          <label for="title">Book title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Boken som inte ville bli läst"
+            required
+          >
+        </div>
+        <div>
+          <label for="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Skye Hansson"
+            required
+          >
+        </div>
+        <fieldset>
+          <legend>Status</legend>
+          <input
+            type="radio"
+            id="status-tbr"
+            name="status"
+            value="tbr"
+            checked
+          >
+          <label for="status-tbr">TBR</label>
+          <input
+            type="radio"
+            id="status-read"
+            name="status"
+            value="read"
+          >
+          <label for="status-read">Read</label>
+        </fieldset>
+        <fieldset id="expectation-rating">
+          <legend>Expectation rating</legend>
+          <div class="rating">
+            <input
+              type="radio"
+              id="star1"
+              name="rating"
+              value="1"
+            >
+            <label for="star1">★</label>
+            <input
+              type="radio"
+              id="star2"
+              name="rating"
+              value="2"
+            >
+            <label for="star2">★</label>
+            <input
+              type="radio"
+              id="star3"
+              name="rating"
+              value="3"
+            >
+            <label for="star3">★</label>
+            <input
+              type="radio"
+              id="star4"
+              name="rating"
+              value="4"
+            >
+            <label for="star4">★</label>
+            <input
+              type="radio"
+              id="star5"
+              name="rating"
+              value="5"
+            >
+            <label for="star5">★</label>
           </div>
-
-        </section>
-
-
-        <!-- =========================
-             ADD BOOK
-        ========================== -->
-
-        <section class="add-book">
-
-          <header class="section-header">
-            <div>
-              <h2>Add a Book</h2>
-              <p>Add something new to your library.</p>
-            </div>
-          </header>
-
-
-          <form id="book-form">
-
-
-            <!-- BOOK INFORMATION -->
-
-            <div>
-              <label for="title">Book title</label>
-
-              <input
-                type="text"
-                id="title"
-                name="title"
-                placeholder="Boken som inte ville bli läst"
-                required
-              >
-            </div>
-
-
-            <div>
-              <label for="author">Author</label>
-
-              <input
-                type="text"
-                id="author"
-                name="author"
-                placeholder="Skye Hansson"
-                required
-              >
-            </div>
-
-
-            <!-- STATUS -->
-
-            <fieldset>
-              <legend>Status</legend>
-
-              <input
-                type="radio"
-                id="status-tbr"
-                name="status"
-                value="tbr"
-                checked
-              >
-
-              <label for="status-tbr">TBR</label>
-
-
-              <input
-                type="radio"
-                id="status-read"
-                name="status"
-                value="read"
-              >
-
-              <label for="status-read">Read</label>
-            </fieldset>
-
-
-            <!-- EXPECTATION RATING -->
-
-            <fieldset id="expectation-rating">
-              <legend>Expectation rating</legend>
-
-              <div class="rating">
-
-                <input
-                  type="radio"
-                  id="star1"
-                  name="rating"
-                  value="1"
-                >
-                <label for="star1">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star2"
-                  name="rating"
-                  value="2"
-                >
-                <label for="star2">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star3"
-                  name="rating"
-                  value="3"
-                >
-                <label for="star3">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star4"
-                  name="rating"
-                  value="4"
-                >
-                <label for="star4">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star5"
-                  name="rating"
-                  value="5"
-                >
-                <label for="star5">★</label>
-
-              </div>
-            </fieldset>
-
-
-            <!-- READ RATING -->
-
-            <fieldset id="read-rating">
-              <legend>What did you think?</legend>
-
-              <div class="rating">
-
-                <input
-                  type="radio"
-                  id="star1"
-                  name="rating"
-                  value="1"
-                >
-                <label for="star1">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star2"
-                  name="rating"
-                  value="2"
-                >
-                <label for="star2">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star3"
-                  name="rating"
-                  value="3"
-                >
-                <label for="star3">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star4"
-                  name="rating"
-                  value="4"
-                >
-                <label for="star4">★</label>
-
-
-                <input
-                  type="radio"
-                  id="star5"
-                  name="rating"
-                  value="5"
-                >
-                <label for="star5">★</label>
-
-              </div>
-            </fieldset>
-
-
-            <!-- SUBMIT -->
-
-            <button type="submit">
-              Add book
-            </button>
-
-          </form>
-
-        </section>
-
-
-        <!-- =========================
-             RECOMMENDATIONS
-        ========================== -->
-
+        </fieldset>
+        <fieldset id="read-rating">
+          <legend>What did you think?</legend>
+          <div class="rating">
+            <input
+              type="radio"
+              id="star1"
+              name="rating"
+              value="1"
+            >
+            <label for="star1">★</label>
+            <input
+              type="radio"
+              id="star2"
+              name="rating"
+              value="2"
+            >
+            <label for="star2">★</label>
+            <input
+              type="radio"
+              id="star3"
+              name="rating"
+              value="3"
+            >
+            <label for="star3">★</label>
+            <input
+              type="radio"
+              id="star4"
+              name="rating"
+              value="4"
+            >
+            <label for="star4">★</label>
+            <input
+              type="radio"
+              id="star5"
+              name="rating"
+              value="5"
+            >
+            <label for="star5">★</label>
+          </div>
+        </fieldset>
+        <button type="submit">
+          Add book
+        </button>
+      </form>
+    </section>
         <aside class="right-sidebar">
           <h2>Recommended books!</h2>
-
           <p>
             Recommended books based on your reading history.
           </p>
         </aside>
-
-
       </div>
-      <!-- /home-content -->
-
-
     </main>
-    <!-- /home -->
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
     <script
       type="module"
       src="/src/main.js"
     ></script>
-
   </body>
 </html>
