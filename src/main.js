@@ -60,7 +60,7 @@ bookForm.addEventListener("submit", async (event) => {
     'input[name="rating"]:checked'
   )?.value;
 
-  // Bestäm om stjärnorna är rating eller expectation rating
+  // Bestäm om stjärnorna är rating eller expectation rating. 
   const rating = isRead
     ? Number(selectedRating)
     : null;
@@ -112,7 +112,9 @@ function displayBooks(books) {
     const ratingInfo = document.createElement("p");
     const markAsRead = document.createElement("button");
     const deleteButton = document.createElement("button");
-
+    //jag lär behöva skapa bild-element när jag hämtat open library API
+    //detsamma gäller genre
+    
     // Lägg in bokens information
     title.textContent = book.title;
     author.textContent = `Author: ${book.author}`;
