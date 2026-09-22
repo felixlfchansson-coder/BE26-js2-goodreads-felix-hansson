@@ -8,9 +8,13 @@
       content="width=device-width, initial-scale=1.0"
     />
 
-    <link rel="icon" type="image/png" href="../images/fav-icon.png" />
+    <link rel="icon" type="image/png" href="/images/fav-icon.png" />
+
+    <!-- Global först -->
+    <link rel="stylesheet" href="../styles/global.css" />
+
+    <!-- Sidans egen CSS efteråt -->
     <link rel="stylesheet" href="./farkostprincipen.css" />
-    <link rel="stylesheet" href="../styles/global.css">
 
     <title>Farkostprincipen | Inkstone</title>
   </head>
@@ -20,19 +24,23 @@
     <!-- SIDEBAR -->
     <aside class="sidebar">
 
-      <div class="sidebar-brand">
-        <h1>INKSTONE</h1>
+      <div class="header-brand">
+        <h1>Inkstone</h1>
         <p>Stories are the lifeblood of our imagination.</p>
       </div>
 
-      <nav class="sidebar-nav">
-        <a href="../index.html">
-          Home
+      <nav class="main-nav">
+
+        <a href="/index.html">
+          <i data-lucide="house"></i>
+          <span>Home</span>
         </a>
 
         <a href="./aboat.html" class="active">
-          Aboat
+          <i data-lucide="info"></i>
+          <span>Aboat</span>
         </a>
+
       </nav>
 
     </aside>
