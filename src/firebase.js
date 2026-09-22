@@ -9,6 +9,7 @@ export async function addBook(book) {
     },
     body: JSON.stringify(book),
   });
+
   const data = await response.json();
   return data;
 }
@@ -20,7 +21,7 @@ export async function getBooks() {
   return data;
 }
 
-//updatera med patch
+// Uppdatera med patch
 export async function updateBook(id, updatedBook) {
   const response = await fetch(`${BASE_URL}books/${id}.json`, {
     method: "PATCH",
@@ -29,6 +30,7 @@ export async function updateBook(id, updatedBook) {
     },
     body: JSON.stringify(updatedBook),
   });
+
   const data = await response.json();
   return data;
 }
@@ -38,6 +40,7 @@ export async function deleteBook(id) {
   const response = await fetch(`${BASE_URL}books/${id}.json`, {
     method: "DELETE",
   });
+
   const data = await response.json();
   return data;
 }
