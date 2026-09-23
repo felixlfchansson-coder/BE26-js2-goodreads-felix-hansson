@@ -4,7 +4,6 @@ import { displayBooks } from "./displayBook.js";
 
 export function initNewBook() {
   const bookForm = document.querySelector("#book-form");
-
   const toBeReadRadio = document.querySelector("#status-toBeRead");
   const readRadio = document.querySelector("#status-read");
 
@@ -23,42 +22,52 @@ export function initNewBook() {
       readRatingSection.style.display = "block";
     }
   }
+  
+   async function handleBookSubmit(event) {
+    event.preventDefault();
+
+    const book = createBookFromForm();
+
+    await addBook(book);
+
+    bookForm.reset();
+    updateRatingDisplay();
+
+    const books = await getBooks();
+    displayBooks(books);
+  }
 
   toBeReadRadio.addEventListener("change", updateRatingDisplay);
   readRadio.addEventListener("change", updateRatingDisplay);
 
+  bookForm.addEventListener("submit", handleBookSubmit);
+
   updateRatingDisplay();
+}
 
-  bookForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
 
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const isRead = readRadio.checked;
+function createBookFromForm() {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const isRead = document.querySelector("#status-read").checked;
 
-    const selectedRating = document.querySelector(
-      'input[name="rating"]:checked'
-    )?.value;
+  const selectedRating = isRead
+    ? document.querySelector('input[name="read-rating"]:checked')?.value
+    : document.querySelector('input[name="expectation-rating"]:checked')?.value;
 
-    const rating = isRead
-      ? Number(selectedRating)
-      : null;
+  const rating = isRead
+    ? Number(selectedRating)
+    : null;
 
-    const expectationRating = isRead
-      ? null
-      : Number(selectedRating);
+  const expectationRating = isRead
+    ? null
+    : Number(selectedRating);
 
-    const book = new Book(
-      title,
-      author,
-      isRead,
-      rating,
-      expectationRating
-    );
-
-    await addBook(book);
-
-    const books = await getBooks();
-    displayBooks(books);
-  });
+  return new Book(
+    title,
+    author,
+    isRead,
+    rating,
+    expectationRating
+  );
 }

@@ -7,31 +7,47 @@ export function createStars(rating) {
 export function createRatingForm(id) {
   const ratingContainer = document.createElement("div");
   const ratingQuestion = document.createElement("p");
+  const ratingOptions = document.createElement("div");
+  const submitRating = document.createElement("button");
+
+  ratingContainer.classList.add("book-rating-form");
+  ratingOptions.classList.add("book-rating-options");
+  submitRating.classList.add("submit-rating");
 
   ratingQuestion.textContent = "What did you think?";
-  ratingContainer.append(ratingQuestion);
-
-  for (let i = 1; i <= 5; i++) {
-    const radio = document.createElement("input");
-    radio.type = "radio";
-    radio.name = `rating-${id}`;
-    radio.value = i;
-    radio.id = `rating-${id}-${i}`;
-
-    const label = document.createElement("label");
-    label.htmlFor = radio.id;
-    label.textContent = "★";
-
-    ratingContainer.append(radio, label);
-  }
-
-  const submitRating = document.createElement("button");
   submitRating.textContent = "Submit rating";
 
-  ratingContainer.append(submitRating);
+  for (let rating = 1; rating <= 5; rating++) {
+    const { radio, label } = createRatingOption(id, rating);
+    ratingOptions.append(radio, label);
+  }
+
+  ratingContainer.append(
+    ratingQuestion,
+    ratingOptions,
+    submitRating
+  );
 
   return {
     ratingContainer,
-    submitRating
+    submitRating,
+  };
+}
+
+function createRatingOption(id, rating) {
+  const radio = document.createElement("input");
+  const label = document.createElement("label");
+
+  radio.type = "radio";
+  radio.name = `rating-${id}`;
+  radio.value = rating;
+  radio.id = `rating-${id}-${rating}`;
+
+  label.htmlFor = radio.id;
+  label.textContent = "★";
+
+  return {
+    radio,
+    label,
   };
 }

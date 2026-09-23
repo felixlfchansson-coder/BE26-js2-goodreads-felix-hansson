@@ -8,11 +8,11 @@ import { createIcons, icons } from "lucide";
 
 createIcons({ icons });
 
-// Starta formuläret
+
 initNewBook();
 
-// Hämta böcker från Firebase
+
 const books = await getBooks();
 
-// Visa böckerna
+
 displayBooks(books);

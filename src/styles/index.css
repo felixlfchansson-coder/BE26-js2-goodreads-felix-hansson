@@ -471,17 +471,36 @@
    RATING
 ======================================== */
 
-.rating:has(#star1:checked) label:nth-of-type(-n + 1),
-.rating:has(#star2:checked) label:nth-of-type(-n + 2),
-.rating:has(#star3:checked) label:nth-of-type(-n + 3),
-.rating:has(#star4:checked) label:nth-of-type(-n + 4),
-.rating:has(#star5:checked) label:nth-of-type(-n + 5) {
+.rating input[type="radio"] {
+  display: none;
+}
+
+.rating label {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Expectation rating */
+
+.rating:has(#expectation-star1:checked) label:nth-of-type(-n + 1),
+.rating:has(#expectation-star2:checked) label:nth-of-type(-n + 2),
+.rating:has(#expectation-star3:checked) label:nth-of-type(-n + 3),
+.rating:has(#expectation-star4:checked) label:nth-of-type(-n + 4),
+.rating:has(#expectation-star5:checked) label:nth-of-type(-n + 5),
+
+/* Read rating */
+
+.rating:has(#read-star1:checked) label:nth-of-type(-n + 1),
+.rating:has(#read-star2:checked) label:nth-of-type(-n + 2),
+.rating:has(#read-star3:checked) label:nth-of-type(-n + 3),
+.rating:has(#read-star4:checked) label:nth-of-type(-n + 4),
+.rating:has(#read-star5:checked) label:nth-of-type(-n + 5) {
   color: #e7a43b;
 
   text-shadow:
     0 0 8px rgba(231, 164, 59, 0.35);
 }
-
 
 /* ========================================
    SUBMIT BUTTON
@@ -537,6 +556,55 @@
 
   font-family: var(--font-heading);
   line-height: 1.5;
+}
+
+/* ========================================
+   MARK AS READ RATING FORM
+======================================== */
+
+.book-rating-form {
+  grid-column: 2;
+
+  margin-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 8px;
+}
+
+.book-rating-form p {
+  margin: 0;
+}
+
+.book-rating-options {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.book-rating-options input[type="radio"] {
+  display: none;
+}
+
+.book-rating-options label {
+  color: var(--text-muted);
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+}
+
+.book-rating-options label:hover {
+  color: var(--gold-light);
+}
+
+.book-rating-form .submit-rating {
+  margin-top: 4px;
+}
+.book-rating-options input[type="radio"]:checked + label {
+  color: #e7a43b;
 }
 
 
